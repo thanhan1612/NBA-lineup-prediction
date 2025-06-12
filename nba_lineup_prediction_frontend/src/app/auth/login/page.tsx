@@ -7,9 +7,15 @@ import { LoginSchema } from "@/utils/login";
 import { LoginFormData } from "@/utils/login";
 import {useForm} from "react-hook-form";
 import {zodResolver} from '@hookform/resolvers/zod';
+import { useRouter } from "next/router";
 import Link from "next/link"
 
 export default function LoginPage()  {
+ 
+ const HandleSignUpReroute = () => {
+    const router = useRouter();
+    router.push('/auth/signup');
+ } ;
  const form = useForm<LoginFormData>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -41,7 +47,7 @@ export default function LoginPage()  {
                     <div>
                         <Button>Login</Button>
                     </div>
-                    <div>
+                    <div onClick={() => HandleSignUpReroute()}>
                         <p>Or Signup using</p>
                         <Link href = "/auth/signup">Signup</Link>
                     </div>

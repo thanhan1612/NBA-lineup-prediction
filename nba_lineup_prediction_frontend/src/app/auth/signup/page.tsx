@@ -9,6 +9,7 @@ import {useForm} from "react-hook-form";
 import {zodResolver} from '@hookform/resolvers/zod';
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
+import Background from "../../../../public/background";
 export default function SignUpPage() {
     return (
        
