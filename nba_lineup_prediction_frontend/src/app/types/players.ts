@@ -10,3 +10,12 @@ export interface Player {
     weight:string,
     img:string
 };
+export type PlayerTable =  {
+    name:string,
+    careerlength:number,
+    height:string,
+    weight:string,
+    dob:Date,
+    college:string
+
+}

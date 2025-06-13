@@ -1,7 +1,9 @@
 'use client'
 const PlayerStat = () => {
     return (
-        <div></div>
+        <div>
+            
+        </div>
     )
 };
 export default PlayerStat;

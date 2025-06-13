@@ -1,64 +1,44 @@
-import { Player } from "../types/players"
+import { PlayerTable } from "../types/players";
 
-export const dummyplayers: Player[] = [
-  {
-    id: 'p1',
-    name: 'James Carter',
-    position: ['PG', 'SG'],
-    dob: new Date('1994-06-21'),
-    college: 'Duke University',
-    born: 'Chicago, IL',
-    shootinghand: 'right',
-    height: '6\'3"',
-    weight: '190 lbs',
-    img: 'https://via.placeholder.com/150?text=James+Carter',
-  },
-  {
-    id: 'p2',
-    name: 'Liam Chen',
-    position: ['SF'],
-    dob: new Date('1997-02-13'),
-    college: 'UCLA',
-    born: 'San Francisco, CA',
-    shootinghand: 'left',
-    height: '6\'7"',
-    weight: '210 lbs',
-    img: 'https://via.placeholder.com/150?text=Liam+Chen',
-  },
-  {
-    id: 'p3',
-    name: 'Marcus Thompson',
-    position: ['PF', 'C'],
-    dob: new Date('1991-11-30'),
-    college: 'University of Kentucky',
-    born: 'Houston, TX',
-    shootinghand: 'right',
-    height: '6\'10"',
-    weight: '245 lbs',
-    img: 'https://via.placeholder.com/150?text=Marcus+Thompson',
-  },
-  {
-    id: 'p4',
-    name: 'Ethan Reynolds',
-    position: ['SG', 'SF'],
-    dob: new Date('1996-08-10'),
-    college: 'University of Michigan',
-    born: 'Detroit, MI',
-    shootinghand: 'both',
-    height: '6\'5"',
-    weight: '200 lbs',
-    img: 'https://via.placeholder.com/150?text=Ethan+Reynolds',
-  },
-  {
-    id: 'p5',
-    name: 'Noah Silva',
-    position: ['C'],
-    dob: new Date('1992-04-05'),
-    college: 'Gonzaga University',
-    born: 'Miami, FL',
-    shootinghand: 'right',
-    height: '7\'1"',
-    weight: '260 lbs',
-    img: 'https://via.placeholder.com/150?text=Noah+Silva',
-  },
+export const dummyPlayers: PlayerTable[] = [
+    {
+        name: "Michael Jordan",
+        careerlength: 15,
+        height: "6'6\"",
+        weight: "216 lbs",
+        dob: new Date("1963-02-17"),
+        college: "University of North Carolina"
+    },
+    {
+        name: "LeBron James",
+        careerlength: 21,
+        height: "6'9\"",
+        weight: "250 lbs",
+        dob: new Date("1984-12-30"),
+        college: "None"
+    },
+    {
+        name: "Stephen Curry",
+        careerlength: 15,
+        height: "6'2\"",
+        weight: "185 lbs",
+        dob: new Date("1988-03-14"),
+        college: "Davidson College"
+    },
+    {
+        name: "Kevin Durant",
+        careerlength: 17,
+        height: "6'10\"",
+        weight: "240 lbs",
+        dob: new Date("1988-09-29"),
+        college: "University of Texas"
+    },
+    {
+        name: "Kobe Bryant",
+        careerlength: 20,
+        height: "6'6\"",
+        weight: "212 lbs",
+        dob: new Date("1978-08-23"),
+        college: "None"
+    }
 ];
