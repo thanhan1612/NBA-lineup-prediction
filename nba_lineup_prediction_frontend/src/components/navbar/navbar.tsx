@@ -4,11 +4,20 @@ import { DropdownMenu } from '../ui/dropdown-menu';
 import { Button } from '../ui/button';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+
 const Navbar = () => {
+    const pathname = usePathname();
     const router = useRouter();
     const handleClickPlayer = () => {
         router.push('/players');
-    }
+    };
+    const handleClickPlayoffStats = () => {
+        router.push('/playoffstats');
+    };
+    const hideNavbarRoutes = ['/auth/login','/auth/signup'];
+    const shouldHideNavbar = hideNavbarRoutes.includes(pathname);
+    if (shouldHideNavbar) return null
     return (
         <div>
         <div className='flex items-center m-4 ml-6 justify-between'>
@@ -36,6 +45,7 @@ const Navbar = () => {
                             className="hover:bg-gray-200 p-2 rounded cursor-pointer transition-colors duration-200"
                             role="menuitem"
                             tabIndex={0}
+                            onClick= {() => handleClickPlayoffStats()}
                         >
                             <p className="text-sm">Playoff Stats</p>
                         </div>
@@ -67,7 +77,7 @@ const Navbar = () => {
 
                 </div>
                 <div >
-                    <span>Login</span>
+                    <a href= '/auth/login'>Login</a>
                 </div>
             </div>
         </div>

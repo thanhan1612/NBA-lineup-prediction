@@ -19,9 +19,21 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command";
+import { dummyPlayers } from "../dummy-players/dummy-players";
 
 export function DataTable<TData, TValue>({
   columns,
@@ -45,21 +57,46 @@ export function DataTable<TData, TValue>({
       sorting,
       columnFilters,
     },
-  })
-
+  });
+  const [search,setSearch] = React.useState('');
+  const handleSelect = (playerName: string) => {
+    setSearch(playerName) // fill input with selected name
+  }
+  console.log(dummyPlayers)
   return (
     <div>
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter players..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
+      <div className=" relative flex items-center py-4 w-[300px] border-sx mb-4">
+        <Command className="w-full">
+        <CommandInput 
+          placeholder="Search here ..." 
+          value={search} 
+          onValueChange={setSearch}
         />
+        
+                  {search.trim() !== '' && (
+                  <div className="absolute top-full left-0 w-full z-50 pointer-events-auto">
+                  <CommandList className="bg-white border shadow-lg rounded-md  max-h-60 overflow-auto">
+                    <CommandEmpty>No players found.</CommandEmpty>
+                    {dummyPlayers.map((player) => (
+                      <CommandItem
+                        key={player.name}
+                        onSelect={() => handleSelect(player.name)}
+                        value={player.name}
+                      >
+                        {player.name}
+                      </CommandItem>
+                    ))}
+                  </CommandList>
+                  </div>
+                )}
+
+         </Command>
+      </div>
+      <div className="mb-2">
+        <h1>Players</h1>
       </div>
       <div className="rounded-md border">
+        
         <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

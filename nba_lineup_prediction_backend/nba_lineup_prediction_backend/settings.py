@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'nba_lineup_prediction_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb',
-        'USER':'an_user',
+        'NAME': 'nba_db',
+        'USER':'nbadmin',
         'PASSWORD':'Pubg221174@',
         'HOST':'localhost',
-        'PORT':''
+        'PORT':'5432'
     }
 }
 
